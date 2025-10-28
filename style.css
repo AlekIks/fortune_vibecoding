@@ -57,6 +57,45 @@ button {
 	background: transparent;
 }
 
+/* Кнопка "Открыть печенье" */
+.controls {
+	display: flex;
+	justify-content: center;
+	margin-top: 1rem;
+}
+.open-btn {
+	background: var(--accent);
+	color: #fff;
+	border-radius: 999px;
+	padding: 0.6rem 1.1rem;
+	font-weight: 700;
+	letter-spacing: 0.2px;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+	border: none;
+	transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+.open-btn:active {
+	transform: translateY(1px) scale(0.997);
+}
+.open-btn:focus {
+	outline: 3px solid rgba(255,59,48,0.14);
+}
+
+/* Размещение кнопки рядом с логотипом */
+.header-controls {
+	margin-left: auto;
+}
+.header-controls .open-btn {
+	background: var(--accent);
+	color: #fff;
+	border-radius: 999px;
+	padding: 0.45rem 0.9rem;
+	font-weight: 700;
+	border: none;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+	transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
 /* Cookie */
 .fc {
 	background: transparent;
@@ -170,7 +209,12 @@ button {
 	left: 0;
 	transform: scale(0,1);
 	transform-origin: 50% 32%;
+	/* удалены: transition и opacity, оставляем исходный transform/scale поведение */
 }
+.opened .fc-fortune {
+	animation: foldOut 0.7s ease-in forwards;
+}
+
 /* делаем текст более читаемым */
 .fc-fortune-text {
 	font-family: "Inter", serif;
@@ -287,4 +331,74 @@ button {
 	justify-content: center;
 	align-items: flex-start;
 	flex-direction: column;
+}
+
+/* Конфетти (gif) */
+.confetti {
+	position: fixed;
+	left: 50%;
+	top: 18%;
+	transform: translateX(-50%) scale(0.95);
+	pointer-events: none;
+	width: min(640px, 92vw);
+	max-width: 900px;
+	opacity: 0;
+	transition: opacity 260ms ease, transform 260ms cubic-bezier(.2,.8,.2,1);
+	z-index: 999;
+	/* скрываем на маленьких экранах по высоте, чтобы не закрывало контент */
+	max-height: 60vh;
+	display: block;
+}
+.confetti.show {
+	opacity: 1;
+	transform: translateX(-50%) scale(1);
+}
+
+/* Промокод — заметный кликабельный бейдж */
+.promo-code {
+	display: inline-block;
+	margin-left: 0.5rem;
+	background: var(--accent);
+	color: #fff;
+	padding: 0.18rem 0.5rem;
+	border-radius: 0.45rem;
+	font-weight: 700;
+	letter-spacing: 0.4px;
+	cursor: pointer;
+	user-select: none;
+	transition: transform 120ms ease, opacity 120ms ease, box-shadow 120ms ease;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+	font-family: "Inter", sans-serif;
+}
+
+/* подсказка при фокусе */
+.promo-code:focus {
+	outline: 3px solid rgba(255,59,48,0.14);
+	transform: translateY(-1px);
+}
+
+/* состояние после копирования */
+.promo-code.copied {
+	background: #2ecc71;
+	box-shadow: 0 6px 18px rgba(46,204,113,0.14);
+	transform: scale(1.02);
+}
+
+/* Подсказка рядом с промокодом */
+.promo-hint {
+	display: inline-block;
+	margin-left: 0.6rem;
+	font-size: 0.75rem;
+	color: #6b6b6b;
+	opacity: 0.95;
+	vertical-align: middle;
+	pointer-events: none; /* декоративная подсказка не перехватывает клики */
+	font-family: "Inter", sans-serif;
+}
+
+/* Скрыть подсказку на очень маленьких экранах */
+@media (max-width: 420px) {
+	.promo-hint {
+		display: none;
+	}
 }

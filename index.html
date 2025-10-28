@@ -18,11 +18,17 @@
       <text x="140" y="28" font-family="Inter, sans-serif" font-weight="700" font-size="28" fill="#FF3B30">Еда</text>
     </svg>
     <span class="brand-sub">Печенье судьбы</span>
+
+    <!-- Добавил кнопку управления рядом с логотипом -->
+    <div class="controls header-controls" aria-hidden="false">
+      <button class="open-btn" type="button" aria-label="Открыть печенье">Открыть печенье</button>
+    </div>
   </div>
 </header>
 
 <main class="main">
-<button class="fc spawned" type="button" aria-label="Открыть печенье">
+<!-- Кнопка-печенье остаётся в теле, под контролами -->
+<button class="fc spawned" type="button" aria-label="Печенье судьбы">
 	<div class="fc-part left"></div>
 	<div class="fc-part right"></div>
 	<div class="fc-crumbs">
@@ -37,10 +43,17 @@
 	</div>
 	<div class="fc-fortune">
 		<p class="fc-fortune-text">Нет предсказания</p>
-		<p class="fc-lucky-numbers">Промокод <span>—</span></p>
+		<p class="fc-lucky-numbers">
+			Промокод 
+			<span class="promo-code" role="button" tabindex="0" title="Кликните, чтобы скопировать промокод">—</span>
+			<small class="promo-hint" aria-hidden="true">Нажмите, чтобы скопировать</small>
+		</p>
 	</div>
 </button>
 </main>
+
+<!-- Добавлен GIF конфетти (должен быть рядом с index.html или дать корректный путь) -->
+<img src="gif_5.gif" class="confetti" alt="" aria-hidden="true">
 
 <script src="script.js"></script>
 </body>
