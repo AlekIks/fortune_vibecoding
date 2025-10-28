@@ -1,0 +1,16 @@
+{
+  "name": "Fortune Cookie",
+  "short_name": "FortuneCookie",
+  "description": "A fun fortune cookie simulator",
+  "start_url": "/src/index.html",
+  "display": "standalone",
+  "background_color": "#D00018",
+  "theme_color": "#D00018",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%23efaa5d'/></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}
