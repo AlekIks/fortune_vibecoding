@@ -1,3 +1,14 @@
+:root{
+	--brand-yellow: #FFD400;
+	--brand-red: #FF3B30;
+	--brand-black: #000000;
+	--bg: #fff;
+	--text: #111;
+	--cookie-color: var(--brand-yellow);
+	--accent: var(--brand-red);
+	--ui-radius: 10px;
+}
+
 * {
 	border: 0;
 	box-sizing: border-box;
@@ -7,25 +18,59 @@
 body, button {
 	font-size: 16px;
 	line-height: 1.5;
+	font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	color: var(--text);
 }
 body {
-	background: #D00018;
+	background: var(--bg);
+	/* лёгкий центр и отступ */
+	min-height: 100vh;
+	padding: 2rem 1rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
+/* Брендовый header */
+.brand {
+	width: 100%;
+	max-width: 720px;
+	margin: 0 auto 1.5rem auto;
+}
+.brand-inner {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+}
+.brand-logo {
+	display: block;
+}
+.brand-sub {
+	color: var(--brand-black);
+	font-weight: 600;
+	opacity: 0.8;
+	font-size: 0.95rem;
+}
+
+/* кнопки и интерактив */
 button {
 	cursor: pointer;
+	background: transparent;
 }
+
 /* Cookie */
 .fc {
 	background: transparent;
 	display: block;
-	margin: 4.5em auto 0 auto;
+	margin: 1.5rem auto 0 auto;
 	position: relative;
 	width: 20em;
 	height: 17em;
+	color: var(--cookie-color); /* цвет печенья задаётся текущим цветом */
 }
 .fc:focus {
 	outline: transparent;
 }
+/* убираем лишнее переопределение цвета (оставляем currentColor) */
 .fc-part, .fc-crumbs, .fc-crumb, .fc-fortune {
 	position: absolute;
 	top: 0;
@@ -114,7 +159,7 @@ button {
 	background:
 		linear-gradient(#fff0 .75em,#fff 0 5.25em,#fff0 0),
 		linear-gradient(90deg,currentColor 3em,#fff 0 25.25em,currentColor 0);
-	color: #00c;
+	color: var(--brand-black);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -126,11 +171,16 @@ button {
 	transform: scale(0,1);
 	transform-origin: 50% 32%;
 }
+/* делаем текст более читаемым */
 .fc-fortune-text {
-	font-family: serif;
+	font-family: "Inter", serif;
+	font-weight: 600;
+	font-size: 1rem;
 }
 .fc-lucky-numbers {
-	font-family: sans-serif;
+	font-family: "Inter", sans-serif;
+	font-weight: 700;
+	color: var(--accent);
 }
 
 /* Animation States */
@@ -227,4 +277,14 @@ button {
 	74%, to {
 		transform: scale(1,1);
 	}
+}
+
+/* небольшой стиль для основной области */
+.main {
+	width: 100%;
+	max-width: 720px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	flex-direction: column;
 }

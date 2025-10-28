@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fortune Cookie</title>
-  <link rel="manifest" href="manifest.json">
+  <title>Яндекс.Еда — Печенье судьбы</title>
+  <link rel="manifest" href="./manifest.json">
+  <!-- Подключаем современный нейтральный шрифт -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<button class="fc spawned" type="button">
+<header class="brand">
+  <!-- Простой текстовый логотип в SVG: "Яндекс." чёрным и "Еда" красным -->
+  <div class="brand-inner" role="banner" aria-label="Яндекс.Еда — бренд">
+    <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 40" width="180" height="30" aria-hidden="true" focusable="false">
+      <text x="0" y="28" font-family="Inter, sans-serif" font-weight="700" font-size="28" fill="#000">Яндекс.</text>
+      <text x="140" y="28" font-family="Inter, sans-serif" font-weight="700" font-size="28" fill="#FF3B30">Еда</text>
+    </svg>
+    <span class="brand-sub">Печенье судьбы</span>
+  </div>
+</header>
+
+<main class="main">
+<button class="fc spawned" type="button" aria-label="Открыть печенье">
 	<div class="fc-part left"></div>
 	<div class="fc-part right"></div>
 	<div class="fc-crumbs">
@@ -22,10 +36,12 @@
 		<div class="fc-crumb"></div>
 	</div>
 	<div class="fc-fortune">
-		<p class="fc-fortune-text">No fortune</p>
-		<p class="fc-lucky-numbers">Lucky Numbers <span>?, ?, ?, ?, ?, ?</span></p>
+		<p class="fc-fortune-text">Нет предсказания</p>
+		<p class="fc-lucky-numbers">Промокод <span>—</span></p>
 	</div>
 </button>
+</main>
+
 <script src="script.js"></script>
 </body>
 </html>
